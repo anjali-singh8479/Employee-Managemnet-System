@@ -20,6 +20,9 @@ const Departments = () => {
     getalldepts();
   }, []);
   return (
+    <>
+    <div className="tt">
+        <LeftNavbar></LeftNavbar>
     <div className='px-5 mt-5'>
         <div className='d-flex justify-content-center'>
             <h3>Category List</h3>
@@ -51,6 +54,8 @@ const Departments = () => {
       </div>
 </div>
 </div>
+    </div>
+    </>
   );
 };
 

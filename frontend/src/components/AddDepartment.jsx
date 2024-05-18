@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import LeftNavbar from './LeftNavbar'
 
 const AddDepartment = () => {
     const navigate=useNavigate()
@@ -26,7 +27,8 @@ const AddDepartment = () => {
      }
     }
   return (
-    <>
+    <div className='tt'>
+        <LeftNavbar></LeftNavbar>
     <div className='form-wrapper'>
       <form >
     <div className='input-wrapper'>
@@ -35,7 +37,7 @@ const AddDepartment = () => {
     <button className="button-click" id="login-button" onClick={add}>Add</button>
       </form>
     </div>
-    </>
+    </div>
   )
 }
 

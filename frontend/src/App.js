@@ -9,6 +9,7 @@ import Employee from "./components/Employee";
 import Departments from "./components/Departments";
 import AddDepartment from "./components/AddDepartment";
 import AddEmployee from "./components/AddEmployee";
+import UpdateEmployee from "./components/UpdateEmployee";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/employee/all" element={<Employee></Employee>}></Route>
           <Route path="/employee/add" element={<AddEmployee></AddEmployee>}></Route>
+          <Route path="/employee/update/:id" element={<UpdateEmployee></UpdateEmployee>}></Route>
           <Route path="/departments" element={<Departments></Departments>}></Route>
           <Route path="/department/add" element={<AddDepartment></AddDepartment>}></Route>
         </Routes>

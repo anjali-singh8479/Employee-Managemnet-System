@@ -17,3 +17,9 @@ export const alldept=(req,res)=>{
         return res.json(data).status(200)
     })
 }
+export const departmentcount=(req, res) => {
+    const q = "Select count(deptid) as departmentcount from departments";
+    db.query(q, (err, data) => {
+        if(err) return res.json(err).status(400);
+        return res.json(data).status(200);
+    })}

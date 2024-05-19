@@ -1,7 +1,19 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import axios from 'axios';
 const LeftNavbar = () => {
+  const navigate=useNavigate()
+  const handlelogout=async()=>{
+    try{
+const res=await axios.get("http://localhost:8800/auth/logout")
+console.log(res)
+navigate("/login")
+    }
+    catch(err){
+      return err
+    }
+  }
   return (
     <>
     <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -20,7 +32,7 @@ const LeftNavbar = () => {
             >
               <li className="w-100">
                 <Link
-                  to="/dashboard"
+                  to="/"
                   className="nav-link text-white px-0 align-middle"
                 >
                   <i className="fs-4 bi-speedometer2 ms-2"></i>
@@ -57,7 +69,7 @@ const LeftNavbar = () => {
                 </Link>
               </li>
               <li className="w-100" >
-              <Link
+              <Link onClick={handlelogout}
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-power ms-2"></i>

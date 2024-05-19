@@ -53,3 +53,9 @@ db.query(q,[id],(err,data)=>{
     return res.json("deleted successfully").status(200) 
 })
 }
+export const employeecount= (req, res) => {
+    const q = "Select count(id) as employees from employees";
+    db.query(q, (err, data) => {
+        if(err) return res.json(err).status(400);
+        return res.json(data).status(200);
+    })}

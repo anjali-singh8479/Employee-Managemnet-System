@@ -2,6 +2,7 @@ import React from 'react'
 import "bootstrap-icons/font/bootstrap-icons.css";
 import LeftNavbar from '../components/LeftNavbar';
 import Topbar from '../components/Topbar';
+import Home from "../components/Home"
 import { Outlet } from 'react-router-dom';
 // import axios from "axios";
 const Dashboard = () => {
@@ -12,6 +13,7 @@ const Dashboard = () => {
         <LeftNavbar></LeftNavbar>
         <div className="col p-0 m-0">
         <Topbar> </Topbar>
+        <Home></Home>
         <Outlet></Outlet>
         </div>
       </div>

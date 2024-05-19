@@ -12,8 +12,14 @@ const AddEmployee = () => {
     })
     const addemployee=async(e)=>{
 e.preventDefault()
+const formdata=new FormData()
+  formdata.append("name",empdetails.name)
+  formdata.append("email",empdetails.email)
+  formdata.append("department",empdetails.department)
+  formdata.append("profile",empdetails.profile)
 try{
-const res=await axios.post("http://localhost:8800/employee/add",empdetails)
+  
+  const res=await axios.post("http://localhost:8800/employee/add",formdata)
 console.log(res)
 navigate("/employee/all")
 }catch(err){
@@ -22,6 +28,7 @@ navigate("/employee/all")
     }
     const handlechange=(e)=>{
         setempdetails((prev)=>({...prev,[e.target.name]:e.target.value}))
+        console.log(empdetails)
     }
     const[data,setdata]=useState([])
     useEffect(() => {
@@ -43,7 +50,7 @@ navigate("/employee/all")
    <div className='tt'>
    <LeftNavbar></LeftNavbar>
    <div className='form-wrapper'>
-      <form >
+      <form enctype="multipart/form-data">
       <div className='input-wrapper'>
         <label>Name</label>
         <input placeholder='Enter the name'  name="name" onChange={handlechange} ></input>
@@ -64,7 +71,7 @@ navigate("/employee/all")
        
         <label>Profile picture</label>
         <div>
-        <input type='file' name="profile" onChange={handlechange}></input>
+        <input type='file' name="profile"  onChange={(e)=>setempdetails((prev)=>({...prev,[e.target.name]:e.target.files[0]}))}></input>
         </div>
     </div>
     <button className="button-click" id="login-button" onClick={addemployee}>Add Employee</button>

@@ -17,6 +17,7 @@ app.use(cors({
     credentials:true
 }))
 app.use(cookieParser())
+app.use(express.static("public"))
 app.use("/auth",authRoutes)
 app.use("/admin",adminRoutes)
 app.use("/employee",employeeRoutes)
